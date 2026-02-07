@@ -1,0 +1,12 @@
+FROM ubuntu:24.04
+
+RUN apt update && apt upgrade -y
+RUN apt install -y \
+    ca-certificates \
+    curl \
+    git \
+    build-essential \
+    pkg-config \
+    && rm -rf /var/lib/apt/lists/*
+
+# Language-specific layers go below this line
