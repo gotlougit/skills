@@ -1,6 +1,6 @@
 ---
 name: hut-bugreport
-description: "Creates a bug report ticket on sourcehut using the hut CLI. Use when asked to file a bug, create a bugreport, or report an issue for a sourcehut-hosted project."
+description: "Creates a bug report ticket on sourcehut using the hut CLI. Use when asked to file a bug, create a bugreport, report an issue, or read a bug report for a sourcehut-hosted project."
 ---
 
 # Hut Bug Report
@@ -41,6 +41,33 @@ echo "<title> (LLM-generated)
 - The title is the first line.
 - Two newlines separate the title from the description body.
 - The description should contain all relevant bug details: what is broken, steps to reproduce, expected vs actual behavior, and any relevant context gathered from the codebase or the user's report.
+
+### Step 4: List and Read Existing Bug Reports
+
+Use `todo ticket` subcommands (not `hut tickets`) to inspect reports.
+
+- List trackers:
+  ```
+  hut todo list
+  ```
+- List tickets in a tracker:
+  ```
+  hut todo ticket list -t <tracker-name>
+  ```
+- List more tickets:
+  ```
+  hut todo ticket list -t <tracker-name> --count 20
+  ```
+- Show a specific ticket by ID:
+  ```
+  hut todo ticket show -t <tracker-name> <ticket-id>
+  ```
+
+Tested example (`yala`):
+```
+hut todo ticket list -t yala --count 20
+hut todo ticket show -t yala 7
+```
 
 ### Guidelines
 
